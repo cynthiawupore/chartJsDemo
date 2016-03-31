@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <!-- <script src="js/exporting.js"></script>
+    <script src="js/highcharts.js"></script> -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="bower_components/jquery-circle-progress/dist/circle-progress.js"></script>
+    <script src="js/examples.js" charset="utf-8"></script>
+
+  </head>
+    <style media="screen">
+      .circle{position: relative;}
+      .circle strong{position: absolute;left: 33px;top:43px;}
+    </style>
+  <body>
+
+
+    <div class="circle">
+        <strong>60<i>%</i></strong>
+    </div>
+
+    <h1 class="testNum">60</h1>
+
+    <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container2" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+    <div id="container3" style="width: 600px; height: 400px; margin: 0 auto"></div>
+    <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container5" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container7" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  </body>
+  <script src="js/one.js" charset="utf-8"></script>
+  <script src="js/two.js" charset="utf-8"></script>
+  <script src="js/three.js" charset="utf-8"></script>
+  <script src="js/four.js" charset="utf-8"></script>
+  <script src="js/five.js" charset="utf-8"></script>
+  <script src="js/six.js" charset="utf-8"></script>
+  <script src="js/seven.js" charset="utf-8"></script>
+  <script>
+
+    $('.circle').circleProgress({
+        value: 0.6,
+        size : 100,
+        fill: {
+            gradient: ["red", "orange"]
+        },
+        startAngle:90,
+        thickness:20,
+    }).on('circle-animation-progress', function(event, progress) {
+        $(this).find('strong').html(parseInt(60 * progress) + '<i>%</i>');
+    });
+
+
+    $('.testNum').circleProgress({
+        value: 0.6
+    }).on('circle-animation-progress', function(event, progress) {
+        $('.testNum').html(parseInt(60 * progress) + '<i>%</i>');
+    });
+  </script>
+</html>
